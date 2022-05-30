@@ -1,0 +1,298 @@
+
+{% load static %}
+
+<link href="{% static 'home/assets/libs/jquery-steps/jquery.steps.css' %}" rel="stylesheet" />
+<link href="{% static 'home/assets/libs/jquery-steps/steps.css' %}" rel="stylesheet" />
+<link href="{% static 'home/assets/libs/flot/css/float-chart.css" rel="stylesheet' %}" />
+<link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" />
+
+<!--Create html-->
+<html>
+  <body>
+
+
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">上傳新案件</h4>            
+        </div>
+      </div>
+    </div>
+
+  </br>
+  <select id="TestFunc" change="ChangeType()">
+      <option value=''></option>
+      <option value='Creats'>Creat</option>
+      <option value='Deletes'>Delete</option>
+      <option value='Modifieds'>Modified</option>
+  </select>
+  <a onclick="ChangeType('Creats')">Creat</a>
+  <a onclick="ChangeType('Deletes')">Delete</a>
+  <a onclick="ChangeType('Modifieds')">Modified</a>
+  <script>
+    function ChangeType(Vals){
+      /*
+      var TestF = $('#TestFunc').val();
+      if(TestF != ''){
+        $('.card').find('div').close();
+        $('.card').find('#'+TestF).show();
+      }*/
+      $('.card').find('div').close();
+        $('.card').find('#'+Vals).show();
+    }
+  </script>
+
+  
+  <div class="card">
+    <div class="card-body">    
+    <div class="form-group row">
+      <label class="col-md-6 mt-3">案件流程</label>
+      <div class="col-md-9">
+
+        <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+          <option>Select</option>
+          <optgroup label="選擇案件流程">
+            <option value="three">三層</option>
+            <option value="much">多層</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+          
+                 <form class="row g-3"> 
+                  <div class="col-md-6">
+                    <label for="validationDefault01"  class="form-label">經辦 *</label>                         
+                    <div class="col-md-9">
+                      <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                        <option>Select</option>
+                        <optgroup label="經辦人員">
+                          <option value="name">Crystal</option>
+                        </optgroup>
+                      </select>
+                    </div>                
+                  </br>
+                  
+                    <div class="col-md-12">
+                      <label for="validationDefault02"  class="form-label">審核 *</label>
+                      <div class="col-md-9">
+                        <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                          <option>Select</option>
+                          <optgroup label="審核人員">
+                            <option value="name">ABC</option>
+                          </optgroup>
+                        </select>
+                      </div>       
+                  </br>
+                  
+                    <div class="col-md-12">
+                      <label for="validationDefault03" class="form-label">核定 *</label>
+                      <div class="col-md-9">
+                        <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                          <option>Select</option>
+                          <optgroup label="核定人員">
+                            <option value="name">AAA</option>
+                            <option value="name">BBB</option>
+                            <option value="name">CCC</option>
+                          </optgroup>
+                        </select>
+                      </div>   
+                  </br> 
+                  <div class="col-md-6" >
+                    <label class="col-md-6">
+                      <font size="4">案件上傳</font>
+                      </label>
+                    <div class="col-md-9">
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="validatedCustomFile"
+                          required
+                        />                       
+                      </div>
+                    </div>
+                  </div>   
+                </br>
+                  
+                <div class="col-12">
+                    <button id = "demo1" class="btn btn-lg btn-primary" type="submit">
+                      送出
+                    </button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+
+<!--schedule-->        
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">自定義流程進度</h4>            
+            </div>
+          </div>
+        </div>
+
+          <div class="card">
+            <div class="card-body wizard-content">
+              <h4 class="card-title"></h4>
+              <h6 class="card-subtitle"></h6>
+              <form id="example-form" action="#" class="mt-5">
+                <div>
+                  <h3>First</h3>
+                  <section>
+                    <label for="word">自定義 *</label>
+                    <input
+                      id="word"
+                      name="word"
+                      type="text"
+                      class="required form-control"
+                    />
+                    <label for="password">Name *</label>
+                    <input
+                      id="password"
+                      name="password"
+                      type="text"
+                      class="required form-control"
+                    />                  
+                    
+                  </section>
+                  <h3>Second</h3>
+                  <section>
+                    <label for="word">自定義 *</label>
+                    <input
+                      id="word"
+                      name="word"
+                      type="text"
+                      class="required form-control"
+                    />
+                    <label for="name">Name *</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="required form-control"
+                    />                  
+                    
+                  </section>
+                  <h3>Third</h3>
+                  <section>
+                      <label for="word">自定義 *</label>
+                      <input
+                        id="word"
+                        name="word"
+                        type="text"
+                        class="required form-control"
+                      />
+                      <label for="name">Name *</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        class="required form-control"
+                      />   
+                         
+                    </section>       
+                    <h3>Fourth</h3>
+                    <section>
+                      <label for="word">自定義 *</label>
+                      <input
+                        id="word"
+                        name="word"
+                        type="text"
+                        class="required form-control"
+                      />
+                      <label for="name">Name *</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        class="required form-control"
+                      />   
+                  </section>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<!--index不可動 下面的表單-->
+<script src="{% static 'home/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+
+<!--Custom JavaScript 不可刪除的-->
+<script src="{% static 'home/js/custom.min.js' %}"></script>
+<script src="{% static 'home/assets/libs/jquery-steps/build/jquery.steps.min.js' %}"></script>
+<script src="{% static 'home/assets/libs/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+<script>
+  //***********************************//
+  // For select 2
+  //***********************************//
+  //$(".select2").select2();//
+
+  /*colorpicker*/
+  $(".demo").each(function () {
+   
+    $(this).minicolors({
+      control: $(this).attr("data-control") || "hue",
+      position: $(this).attr("data-position") || "bottom left",
+
+      change: function (value, opacity) {
+        if (!value) return;
+        if (opacity) value += ", " + opacity;
+        if (typeof console === "object") {
+          console.log(value);
+        }
+      },
+      theme: "bootstrap",
+    });
+  });
+  /*datwpicker*/
+  jQuery(".mydatepicker").datepicker();
+  jQuery("#datepicker-autoclose").datepicker({
+    autoclose: true,
+    todayHighlight: true,
+  });
+  var quill = new Quill("#editor", {
+    theme: "snow",
+  });
+</script>
+
+
+    <!-- All Jquery --> 
+    <script>
+      // Basic Example with form
+      var form = $("#example-form");
+      form.validate({
+        errorPlacement: function errorPlacement(error, element) {
+          element.before(error);
+        },
+        rules: {
+          confirm: {
+            equalTo: "#password",
+          },
+        },
+      });
+      form.children("div").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        onStepChanging: function (event, currentIndex, newIndex) {
+          form.validate().settings.ignore = ":disabled,:hidden";
+          return form.valid();
+        },
+        onFinishing: function (event, currentIndex) {
+          form.validate().settings.ignore = ":disabled";
+          return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+          alert("Submitted!");
+        },
+      });
+
+    </script>   
+  </body>
+</html>
+

@@ -1,0 +1,164 @@
+
+{% load static %}
+<html>
+  <body>
+        <div  class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">修改案件</h4>            
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group row">
+          
+            </br>
+            </br>
+            </br>
+
+        <div class="col-md-6">
+          <label class="col-md-6">
+            <font size="4">欲更新的案件</font>
+          </label>
+          <div class="col-md-9">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="validatedCustomFile"
+                required
+              />
+              <div class="invalid-feedback">
+                Example invalid custom file feedback
+              </div>
+            </div>
+          </div>
+        </div> 
+        </br>
+              
+        <form class="row g-3"> 
+          <div class="col-md-6">
+            <label for="validationDefault01"  class="form-label">經辦 *</label>                         
+            <div class="col-md-9">
+              <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                <option>Select</option>
+                <optgroup label="經辦人員">
+                  <option value="name">Crystal</option>
+                </optgroup>
+              </select>
+            </div>                
+          </br>
+          
+            <div class="col-md-12">
+              <label for="validationDefault02"  class="form-label">審核 *</label>
+              <div class="col-md-9">
+                <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                  <option>Select</option>
+                  <optgroup label="審核人員">
+                    <option value="name">ABC</option>
+                  </optgroup>
+                </select>
+              </div>       
+          </br>
+          
+            <div class="col-md-12">
+              <label for="validationDefault03" class="form-label">核定 *</label>
+              <div class="col-md-9">
+                <select class="select2 form-select shadow-none" style="width: 100%; height: 36px">
+                  <option>Select</option>
+                  <optgroup label="核定人員">
+                    <option value="name">AAA</option>
+                    <option value="name">BBB</option>
+                    <option value="name">CCC</option>
+                  </optgroup>
+                </select>
+              </div>   
+                   
+          </br>
+                  
+          <div class="col-md-6">
+            <label class="col-md-6">
+              <font size="4">更新案件上傳</font>
+            </label>
+
+            <div class="col-md-9">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="validatedCustomFile"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Example invalid custom file feedback
+                </div>
+              </div>
+            </div>
+          </div>
+          </br>
+            <div class="col-12">
+              <div class="card-body">
+                <button class="btn btn-lg btn-primary" type="submit">
+                  送出
+                </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+
+     <!-- Custom CSS -->
+     <link href="{% static 'home/assets/libs/flot/css/float-chart.css" rel="stylesheet' %}" />
+     <!-- Custom CSS -->
+     <link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" />
+     <!--不可刪除的--> 
+    <script src="{% static 'home/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'home/js/custom.min.js' %}"></script>
+
+    
+    
+    <script>
+      //***********************************//
+      // For select 2
+      //***********************************//
+      //$(".select2").select2();//
+
+      /*colorpicker*/
+      $(".demo").each(function () {
+        //
+        // Dear reader, it's actually very easy to initialize MiniColors. For example:
+        //
+        //  $(selector).minicolors();
+        //
+        // The way I've done it below is just for the demo, so don't get confused
+        // by it. Also, data- attributes aren't supported at this time...they're
+        // only used for this demo.
+        //
+        $(this).minicolors({
+          control: $(this).attr("data-control") || "hue",
+          position: $(this).attr("data-position") || "bottom left",
+
+          change: function (value, opacity) {
+            if (!value) return;
+            if (opacity) value += ", " + opacity;
+            if (typeof console === "object") {
+              console.log(value);
+            }
+          },
+          theme: "bootstrap",
+        });
+      });
+      /*datwpicker*/
+      jQuery(".mydatepicker").datepicker();
+      jQuery("#datepicker-autoclose").datepicker({
+        autoclose: true,
+        todayHighlight: true,
+      });
+      var quill = new Quill("#editor", {
+        theme: "snow",
+      });
+    </script>
+  </body>
+</html>

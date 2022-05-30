@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>典琦科技股份有限公司</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'home/assets/images/favicon.png' %}"/>
+    <link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #A1A1A1;
+      }
+      
+      .auth-box {
+        position: absolute;
+        left:50%;
+        top:50%;
+        margin-top:-190px;
+        margin-left:-230px;
+        width:auto;
+        height:auto;
+      }
+
+      .form-control{
+        height:65px;
+      }
+    </style>
+  </head>
+
+  <body>
+      <div class="auth-box">
+        <div id="loginform">
+          <div class="text-center pt-4 pb-4">
+            <span class="db">
+              <img src="{% static 'home/assets/images/logo.png' %}" alt="logo"/>
+            </span>
+          </div>
+           
+            <div class="row pb-5">              
+                <div class="input-group mb-5">
+                  <div class="input-group-prepend">
+                    <span  class="input-group-text bg-success text-white h-100"  id="basic-addon1">
+                      <i class="mdi mdi-account fs-4"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    required=""
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span  class="input-group-text bg-warning text-white h-100" id="basic-addon2">
+                      <i class="mdi mdi-lock fs-4"></i>
+                    </span>
+                  </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Password"
+                      aria-label="Password"
+                      aria-describedby="basic-addon1"
+                      required=""
+                    />
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-success float-end text-white"  style="width:90px;height:60px;"  type="submit">
+              <font size="5">Login</font>
+            </button>        
+        </div>
+    </div>
+
+    <script src="{% static 'home/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'home/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <script>
+      $(".preloader").fadeOut();  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+
+{% load static %}
+<head>
+    <!-- Custom CSS -->
+    <link href="{% static 'home/assets/extra-libs/multicheck/multicheck.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'home/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}" rel="stylesheet"/>
+    <link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" /> 
+  </head>
+<style>
+  body {
+    font-size: 20px;
+    color: #090;
+    text-align: center;
+  }
+
+  .alldeparts{
+    color: #000000;
+    vertical-align:middle;
+  } 
+</style>
+    
+  <body>
+    <label class="col-md-6">
+      <font size="6">案件上傳</font>
+  </label>
+
+<div class="custom-file">
+  <input type="file" class="custom-file-input" id="validatedCustomFile" required/>
+    <div class="invalid-feedback">
+        Example invalid custom file feedback
+    </div>
+</div>
+<br>
+
+
+<label class="col-md-6">
+  <font size="6">審核部門</font>
+</label>
+
+<div class="alldeparts">
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">管理代表</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">資材部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault"> 研發部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" >
+  <label class="form-check-label" for="flexCheckDefault">品保部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">業務部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">美國業務</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">行銷部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">人事部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">製造部</label>
+
+  <br>
+  <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">MIS</label>
+</div>
+
+<div class="col-12">
+  <div class="card-body">
+      <br>
+    <button class="btn btn-lg btn-primary" type="submit">
+      送出
+    </button>
+  </div>
+</div>
+
+    <script src="{% static 'home/assets/extra-libs/multicheck/datatable-checkbox-init.js' %}"></script>
+    <script src="{% static 'home/assets/extra-libs/multicheck/jquery.multicheck.js' %}"></script>
+    <script src="{% static 'home/assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+  </body>
+</html>

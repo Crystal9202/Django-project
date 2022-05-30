@@ -1,0 +1,132 @@
+{% load static %}
+<html>
+    <head>  
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="{% static 'home/assets/extra-libs/multicheck/multicheck.css' %}"/>
+        <link href="{% static 'home/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}" rel="stylesheet"/>
+        <link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" />    
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <style>
+            .ch {
+                color: #CC6600;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    
+    <body>  
+        <!--待審案件-->
+    
+        <div class="card">
+            <div class="card-body">
+                <h4 class="ch">待審案件</h4>
+                <br>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                        <th>案件名</th>
+                        <th>審核人員</th>
+                        <th>最後簽核時間</th>
+                        <th>查看目前進度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div id="on">
+                            <tr>
+                                <td>ABC</a></td>
+                                <td>Alice</td>
+                                <td>2022/01/01</td>
+                                <td class="align-middle"><button type="button" onClick="myFun('one','Btn1')" id="Btn1"  class="btn btn-primary btn-sm w-40">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>DEF</a></td>
+                                <td>Brend</td>
+                                <td>2022/02/01</td>
+                                <td class="align-middle"><button type="button" onClick="myFun('two','Btn2')" id="Btn2" class="btn btn-primary btn-sm w-40">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>GHI</a></td>
+                                <td>Cathy</td>
+                                <td>2022/03/01</td>
+                                <td class="align-middle"><button type="button" onClick="myFun('three','Btn3')" id="Btn3" class="btn btn-primary btn-sm w-40">查看</button></td>
+                            </tr>
+                            <tr>
+                                <td>JKL</a></td>
+                                <td>Doir</td>
+                                <td>2022/04/01</td>
+                                <td class="align-middle"><button type="button" onClick="myFun('four','Btn4')" id="Btn4" class="btn btn-primary btn-sm w-40">查看</button></td>
+                           </tr>
+                        </div>
+                    </tbody>
+                    </table>
+                </div>  
+            </div> 
+        </div>
+    </div>
+
+        <!--進度追蹤-->
+        <div id="sch">
+            <div class="p-3">
+                <h4 class="ch">進度追蹤</h4>
+                <br>
+                    <table class="table table-bordered track_tbl">
+                        <thead>
+                            <tr>
+                                <td>簽核流程</td>
+                                <td>簽核狀態</td>
+                                <td>日期/時間</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active">
+                                <td>經辦</td>
+                                <td>已簽核</td>
+                                <td>16/05/2022 14:51:00</td>
+                            </tr>
+                            <tr>
+                                <td>審核</td>
+                                <td>尚未簽核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>核定</td>
+                                <td>尚未簽核</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+        
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'home/assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+
+<script>
+  
+   $(function(){
+        $('#sch').find('div.p-3').find('table tbody').hide();
+
+    });
+
+    function myFun(val,IDs){
+            /*var filValue=$('#'+IDs).val();*/
+
+        $('#sch').find('div.p-3').find('table tbody').show();
+       
+   };
+
+
+/**Basic Table**/
+$("#zero_config").DataTable();
+$("#zero_config2").DataTable();
+</script>
+
+
+
+
+</body>
+</html>
+
+

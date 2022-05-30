@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{% static 'home/assets/libs/jquery-steps/jquery.steps.css' %}" rel="stylesheet" />
+        <link href="{% static 'home/assets/libs/jquery-steps/steps.css' %}" rel="stylesheet" />
+        <link href="{% static 'home/assets/libs/flot/css/float-chart.css" rel="stylesheet' %}" />
+        <link href="{% static 'home/css/style.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'home/assets/libs/select2/dist/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'home/assets/extra-libs/multicheck/multicheck.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'home/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}" rel="stylesheet"/>
+    
+        <style>
+            body {
+            font-size: 20px;
+            color: #090;    
+            text-align: center;
+            background-color:	#EEEEEE;
+          }
+
+            .select {
+              display: inline-block;
+              width: 300px;
+              position: relative;
+              vertical-align: middle;
+              padding: 0;
+              overflow: hidden;
+              background-color: #fff;
+              color: #555;
+              border: 1px solid #aaa;
+              text-shadow: none;
+              border-radius: 4px;	
+              transition: box-shadow 0.25s ease;
+              z-index: 2;
+          }
+        
+            .select:hover {
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+          }
+        
+            .select:before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 10px solid transparent;
+              border-top-color: #ccc;
+              top: 14px;
+              right: 10px;
+              cursor: pointer;
+              z-index: -2;
+          }
+
+            .select select {
+              cursor: pointer;
+              padding: 10px;
+              width: 100%;
+              border: none;
+              background: transparent;
+              background-image: none;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+          }
+        
+            .select select:focus {
+              outline: none;
+          }
+
+            .alldeparts {
+              color: #000000;
+              vertical-align:middle;
+            }  
+
+            .custom-file {
+              position: absolute;
+              left: 40%;
+            }
+          </style>
+  </head>
+   
+  <body>
+    <br>
+      <h3>選擇案件方式</h3>
+        <div class="select">
+              <select id="slt1">
+                <option>Select</option> 
+                <option value="#tab_1">新增</option>
+                <option value="#tab_2">修改</option>
+                <option value="#tab_3">刪除</option>
+              </select>
+        </div>
+        
+
+    <!--新增-->   
+<div id="tabs">
+  <br>  
+    <div class="A-4" id="tab_1">
+      <h3>選擇案件流程</h3>
+              <div class="select">
+                  <select id="slt2">
+                    <option>Select</option>
+                    <option value="#dep_1">部門會簽</option>
+                    <option value="#dep_2">跨部門會簽</option>
+                  </select>
+              </div>
+
+          <div id="deps">  
+          <br> 
+            <!---部門會簽--> 
+                <div class="A-41" id="dep_1">
+                <b>經辦人員</b>
+                <br>
+                <div class="select">
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option value="name">Crystal</option>
+                  </select>
+                </div>
+                                
+                <br>
+                <b>審核人員</b>
+                <br>
+                <div class="select">
+                  <select  class="form-control">
+                    <option>Select</option>
+                    <option value="name">AAA</option>
+                  </select>
+                </div>
+    
+                <br>
+                <b>核定人員</b>
+                <br>
+                <div class="select">
+                    <select  class="form-control">
+                      <option>Select</option>
+                      <option value="name">BBB</option>
+                    </select>
+                </div>
+                
+                <br>
+                <br>
+                <b>案件上傳</b>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input"  id="validatedCustomFile" required/>                       
+                </div>
+                <br>  
+                <br>  
+                <br>  
+                <div class="col-12">
+                  <br>
+                      <button  class="btn btn-lg btn-primary" type="submit">
+                        送出
+                      </button>
+                </div>      
+            </div> <!--A-41-->
+            <br>  
+    
+        <!--跨部門會簽-->
+              <div class="A-41" id="dep_2">
+                <label class="col-md-6">
+                    <b>案件上傳</b>
+                </label>
+              
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required/>
+                  <div class="invalid-feedback">
+                      Example invalid custom file feedback
+                  </div>
+              </div>
+              <br>
+              <br>
+              <br>
+              
+              
+            <label class="col-md-6">
+                <b>審核部門</b>
+              </label>
+    
+            <div class="alldeparts">
+                <input type="checkbox" class="form-check-input" value="LD" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">管理代表</label>
+              
+                <br>
+                <input type="checkbox" class="form-check-input" value="US" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">美國代表</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="MD" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">資材部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="RD" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault"> 研發部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="QC" id="flexCheckDefault" >
+                <label class="form-check-label" for="flexCheckDefault">品保部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="sales" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">業務部</label>
+       
+                <br>
+                <input type="checkbox" class="form-check-input" value="MK" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">行銷部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="HR" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">人事部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="PD" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">製造部</label>
+    
+                <br>
+                <input type="checkbox" class="form-check-input" value="MIS" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">資訊部</label>
+
+                <br>
+                <input type="checkbox" class="form-check-input" value="FD" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">財務部</label>
+            </div>
+    
+              <div class="col-12">
+                <div class="card-body">
+                    <br>
+                  <button class="btn btn-lg btn-primary" type="submit">
+                    送出
+                  </button>
+                </div>
+              </div>
+            </div><!--A-41-->
+          </div><!--deps-->      
+     </div><!--A-4-->
+      
+          
+     <!--修改-->
+
+      <div class="A-4" id="tab_2">
+        <b>重新上傳案件</b>
+        <div class="custom-file">
+        <br>
+          <input type="file" class="custom-file-input" id="validatedCustomFile" required/>              
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+            <button  class="btn btn-lg btn-primary" type="submit">送出</button>
+      </div><!--A-4-->
+    
+    
+    <!--刪除-->          
+      <div class="A-4" id="tab_3">
+        <br>
+          <b>通知已簽核人員(可多選)</b> 
+          <br>       
+          <div class="select">       
+            <select class="select2 form-select shadow-none mt-3" multiple="multiple" style="height: 50px; width: 100%" >               
+              <optgroup label="審核">
+                <option value="1">A</option>
+                <option value="2">B</option>
+              </optgroup>
+              <optgroup label="核定">
+                <option value="3">C</option>
+                <option value="4">D</option>
+                <option value="5">E</option>
+              </optgroup>
+            </select>
+          </div><!--select-->
+ 
+          <div class="col-md-12">
+          <div class="custom-file">
+          <br>
+              <input type="file" class="custom-file-input" id="validatedCustomFile" required />
+              <div class="invalid-feedback">Example invalid custom file feedback</div>
+          </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+            <button type="button" class="btn btn-danger">確定刪除</button>     
+      </div><!--A-4-->
+</div><!--tabs-->
+
+<script src="{% static 'home/assets/extra-libs/multicheck/datatable-checkbox-init.js' %}"></script>
+<script src="{% static 'home/assets/extra-libs/multicheck/jquery.multicheck.js' %}"></script>
+<script src="{% static 'home/assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="{% static 'home/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'home/assets/libs/select2/dist/js/select2.min.js' %}"></script>
+<script>
+  
+  $(function(){
+    //全部選擇隱藏 create/revise/delete
+      $('#tabs').find('div.A-4').hide();
+      $('#slt1').change(function(){
+        var sltValue=$(this).val();
+          
+          
+      $('#tabs').find('div.A-4').hide();
+  //指定選擇顯示 create/revise/delete
+      $(sltValue).show();                 
+      });
+      
+  //全部選擇隱藏  部門會簽/跨部門會簽
+      $('#deps').find('div.A-41').hide();
+      $('#slt2').change(function(){
+        var depValue=$(this).val();
+          
+         
+      $('#deps').find('div.A-41').hide();
+  //指定選擇顯示  部門會簽/跨部門會簽
+      $(depValue).show();
+      }) ;
+  });
+    // For select 2//
+    $(".select2").select2();
+
+    $(".demo").each(function () {
+
+      $(this).minicolors({
+        control: $(this).attr("data-control") || "hue",
+        position: $(this).attr("data-position") || "bottom left",
+
+        change: function (value, opacity) {
+          if (!value) return;
+          if (opacity) value += ", " + opacity;
+          if (typeof console === "object") {
+            console.log(value);
+          }
+        },
+        theme: "bootstrap",
+      });
+    });
+
+    jQuery(".mydatepicker").datepicker();
+    jQuery("#datepicker-autoclose").datepicker({
+      autoclose: true,
+      todayHighlight: true,
+    });
+    var quill = new Quill("#editor", {
+      theme: "snow",
+    });
+
+  </script>
+  </body>
+</html>
+
