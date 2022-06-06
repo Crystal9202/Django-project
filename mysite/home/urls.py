@@ -1,5 +1,10 @@
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
+
+
+app_name = 'home'
 
 urlpatterns = [
     path('index' ,views.index , name = 'index') ,
@@ -12,3 +17,9 @@ urlpatterns = [
     path('test' , views.test , name="test"),
     path('depsform' , views.depsform , name="depsform")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL , 
+        document_root = settings.MEDIA_ROOT
+    )

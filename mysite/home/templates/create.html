@@ -142,42 +142,28 @@
                 <br>
                 <br>
                 <b>案件上傳</b>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input"  id="validatedCustomFile" required/>                       
-                </div>
-                <br>  
-                <br>  
-                <br>  
-                <div class="col-12">
-                  <br>
-                      <button  class="btn btn-lg btn-primary" type="submit">
-                        送出
-                      </button>
-                </div>      
-            </div> <!--A-41-->
-            <br>  
+                <br>
+                    <br>                    
+                        <form action="{% url 'home:create' %}" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+
+                          
+                          <input type="file" name="FILES">
+                            <br>
+                            <br>
+                              <button class="btn btn-lg btn-primary" type="submit">送出</button>
+                          </input>
+                        </form>                             
+              </div> <!--A-41-->
+              <br>  
     
         <!--跨部門會簽-->
-              <div class="A-41" id="dep_2">
-                <label class="col-md-6">
-                    <b>案件上傳</b>
-                </label>
-              
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="validatedCustomFile" required/>
-                  <div class="invalid-feedback">
-                      Example invalid custom file feedback
-                  </div>
-              </div>
-              <br>
-              <br>
-              <br>
-              
-              
+        <div class="A-41" id="dep_2">
             <label class="col-md-6">
                 <b>審核部門</b>
-              </label>
-    
+            </label>
+              <br>
+              <br>
             <div class="alldeparts">
                 <input type="checkbox" class="form-check-input" value="LD" id="flexCheckDefault" />
                 <label class="form-check-label" for="flexCheckDefault">管理代表</label>
@@ -223,36 +209,41 @@
                 <label class="form-check-label" for="flexCheckDefault">財務部</label>
             </div>
     
-              <div class="col-12">
-                <div class="card-body">
-                    <br>
-                  <button class="btn btn-lg btn-primary" type="submit">
-                    送出
-                  </button>
-                </div>
-              </div>
-            </div><!--A-41-->
-          </div><!--deps-->      
-     </div><!--A-4-->
-      
+            <b>案件上傳</b>
+            <br>
+            <br>
+            <form action="{% url 'home:create' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              <input type="file" name="FILES">
+                <br>
+                <br>
+                  <button class="btn btn-lg btn-primary" type="submit">送出</button>
+              </input>
+            </form>
+    
+    </div><!--A-41-->
+ </div><!--deps-->      
+</div><!--A-4-->
           
      <!--修改-->
 
       <div class="A-4" id="tab_2">
         <b>重新上傳案件</b>
-        <div class="custom-file">
-        <br>
-          <input type="file" class="custom-file-input" id="validatedCustomFile" required/>              
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-            <button  class="btn btn-lg btn-primary" type="submit">送出</button>
-      </div><!--A-4-->
-    
+        <form action="{% url 'home:create' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" name="FILES">
+          <br>
+          <br>
+            <button class="btn btn-lg btn-primary" type="submit">送出</button>
+        </input>
+      </form>              
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div><!--A-4-->
     
     <!--刪除-->          
       <div class="A-4" id="tab_3">
@@ -294,6 +285,10 @@
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="{% static 'home/assets/libs/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'home/assets/libs/select2/dist/js/select2.min.js' %}"></script>
+
+<!--ajax 實現上傳-->
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
 <script>
   
   $(function(){

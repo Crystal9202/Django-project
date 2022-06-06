@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Document
+from . import models
 
 
 # Create your views here.
@@ -16,16 +17,37 @@ def login(request):
     return render(request , "login.html")
 
 def create(request):
+    if request.method == "POST":
+        upload_files = request.FILES["FILES"]
+        
+        docs=models.Document(
+            FILES=upload_files
+        )
+        
+        docs.save()
     return render(request , "create.html")
 
+
 def revise(request):
+    if request.method == "POST":
+        upload_files = request.FILES["FILES"]
+        
+        docs=models.Document(
+            FILES=upload_files
+        )
+        
+        docs.save() 
     return render(request , "revise.html")
 
 def delete(request):
     return render(request , "delete.html")
 
 def finish(request):
-    return render(request , "finish.html")
+    documents = models.Document.objects.all()
+    
+    return render(request ,
+                  "finish.html" ,
+                  {"documents" : documents})
 
 def schedule(request):
     return render(request , "schedule.html")
